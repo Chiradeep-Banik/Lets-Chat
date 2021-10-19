@@ -1,7 +1,6 @@
 import app from './app';
 import { createServer } from 'http';
 import { Server } from 'socket.io';
-import localtunnel from 'localtunnel';
 
 const server = createServer(app);
 const io = new Server(server); 
@@ -37,8 +36,4 @@ io.on('connection', (socket) => {
 
 server.listen(port,async ()=>{
     console.log(`Server is listening on port https://localhost/${port}`);
-    const tunnel = await localtunnel(port, {
-        subdomain: 'chatapp'
-    });
-    console.log(`Tunnel is up and running on ${tunnel.url}`);
 });

@@ -15,7 +15,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const app_1 = __importDefault(require("./app"));
 const http_1 = require("http");
 const socket_io_1 = require("socket.io");
-const localtunnel_1 = __importDefault(require("localtunnel"));
 const server = (0, http_1.createServer)(app_1.default);
 const io = new socket_io_1.Server(server);
 const port = parseInt(process.env.PORT) || 1313;
@@ -47,8 +46,4 @@ io.on('connection', (socket) => {
 });
 server.listen(port, () => __awaiter(void 0, void 0, void 0, function* () {
     console.log(`Server is listening on port https://localhost/${port}`);
-    const tunnel = yield (0, localtunnel_1.default)(port, {
-        subdomain: 'chatapp'
-    });
-    console.log(`Tunnel is up and running on ${tunnel.url}`);
 }));
