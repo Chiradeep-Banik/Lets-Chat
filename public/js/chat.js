@@ -13,7 +13,8 @@ send_btn.addEventListener('click', () => {
     socket.emit('send_msg',{ 
         sent_msg:msg,
         sender_id:socket.id,
-        username:params.get('username') 
+        username:params.get('username'),
+        room:params.get('room') 
     });
     input.value = '';
 });
@@ -26,7 +27,8 @@ document.addEventListener('keypress', (e) => {
 exit_btn.addEventListener('click', () => {
     socket.emit('exit_chat',{
         sender_id:socket.id,
-        username:params.get('username')
+        username:params.get('username'),
+        room:params.get('room')
     });
     window.location.href = '/';
 });
@@ -35,7 +37,8 @@ socket.on("connect", () => {
     console.log(`From client side on connection -> ${socket.id}`);
     socket.emit('join_chat',{
         sender_id:socket.id,
-        username:params.get('username')
+        username:params.get('username'),
+        room:params.get('room')
     });
 });
 
@@ -47,9 +50,14 @@ socket.on("send_msg", (data) => {
     }else{
         li.classList.add('notme');
     }
+    var today = new Date();
+    var time = today.getHours() + ":" + today.getMinutes()+ ":" + today.getSeconds();
     li.innerHTML = `
+        <div class="line1">
+            <div class="time">${time}</div>    
             <div class="user">${data.username}</div>
-            <div class="msg">${data.sent_msg}</div>
+        </div>
+        <div class="msg">${data.sent_msg}</div>
     `;
     list.appendChild(li);
     container.scrollTop = container.scrollHeight;
