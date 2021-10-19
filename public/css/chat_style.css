@@ -57,6 +57,10 @@ li .user{
 li .msg{
     font-size: 1.3rem;
 }
+li .time{
+    font-size: 1rem;
+    opacity: 0.5;
+}
 
 li.notme{
     text-align: left;
@@ -65,6 +69,7 @@ li.notme{
     left:0%;
     margin-right: auto;
 }
+
 li.left,li.join{
     text-align: center;
     background-color: rgb(196, 190, 190);
@@ -81,6 +86,16 @@ li.me{
     background-color: rgb(167 148 148);
     margin-left: auto;
     border-radius: 1.2rem 1.2rem 0rem 1.2rem;
+}
+li.me .line1{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+li.notme .line1{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
 }
 
 @media only screen and (max-width: 450px) {
