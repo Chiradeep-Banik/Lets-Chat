@@ -5,7 +5,7 @@ import localtunnel from 'localtunnel';
 
 const server = createServer(app);
 const io = new Server(server); 
-const port = parseInt(process.env.PORT as string) || 1313;
+const port = 1313;
 
 io.on('connection', (socket) => {
     console.log(`From server side on connection -> ${socket.id}`);
