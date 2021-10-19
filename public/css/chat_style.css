@@ -6,38 +6,85 @@ h1{
     text-align: center;
 }
 #container{
-    height: 75vh;
+    height: 74vh;
     Overflow-y:scroll;
     background-color: rgb(196, 190, 190);
+    width: 95%;
+    margin:0 auto;
 }
-form{
+#form{
     text-align: center;
     font-family: 'Roboto';
     position: relative;
     bottom: 0%;
-    width: 100%;
+    width: 95%;
     padding-bottom: 2rem;
     display: flex;
     min-height: 2rem;
-    margin-top: 1rem;
+    margin: 1rem auto 0 auto;
 }
-form #msg{
+#form #msg{
     flex:5;
     font-size: 1.3rem;
     background-color: rgb(180, 175, 175);
 }
-form #submit{
+#form #submit{
     flex:1;
     font-size: 1.3rem;
     cursor: pointer;
     background-color: rgb(180, 175, 175);
 }
 
-#exit{
+#exit,#send{
     font-size: 1.3rem;
     cursor: pointer;
     background-color: rgb(180, 175, 175);
-    flex: 1;
+    flex: 0.7;
+}
+ul{
+    list-style: none;
+}
+li{
+    padding: 0.5rem;
+    margin-right: 2.5rem;
+    width:30%;
+    border-bottom: rgb(53, 49, 49) solid 1px;
+}
+li .user{
+    font-size: 1rem;
+    opacity: 0.5;
+}
+li .msg{
+    font-size: 1.3rem;
+}
+
+li.notme{
+    text-align: left;
+    background-color: rgb(165, 143, 134);
+    border-radius: 1.2rem 1.2rem 1.2rem 0rem;
+    left:0%;
+    margin-right: auto;
+}
+li.left,li.join{
+    text-align: center;
+    background-color: rgb(196, 190, 190);
+    border:none;
+    font-style: italic;
+    font-size: 1.3rem;
+    margin: 0 auto;
+    opacity: 0.4;
 }
 
 
+li.me{
+    text-align: right;
+    background-color: rgb(167 148 148);
+    margin-left: auto;
+    border-radius: 1.2rem 1.2rem 0rem 1.2rem;
+}
+
+@media only screen and (max-width: 450px) {
+    form{
+        flex-direction: column;
+    }
+}

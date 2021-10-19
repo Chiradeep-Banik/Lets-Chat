@@ -14,13 +14,13 @@ form{
     margin: 0 auto;
     align-items: center;
     justify-content: center;
-    width: 25rem;
-    height: 10rem;
+    width: 25%;
+    min-height: 10%;
     padding: 4rem;
     border-radius: 0.5rem;
 }
 
-form input{
+form input,button{
     min-height: 20%;
     margin: 0.5rem 0;
     padding: 0.5rem;

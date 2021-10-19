@@ -29,6 +29,12 @@ io.on('connection', (socket) => {
             username: data.username
         });
     });
+    socket.on('join_chat', (data) => {
+        console.log(`From server side on join_chat -> ${data.username}`);
+        socket.broadcast.emit('join_chat', {
+            joined_user: data.username
+        });
+    });
     socket.on('exit_chat', (data) => {
         console.log(`From server side on exit_chat -> ${data.username}`);
         socket.broadcast.emit('exit_chat', {
