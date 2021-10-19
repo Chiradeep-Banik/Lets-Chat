@@ -2,10 +2,8 @@ import express,{ Request,Response } from 'express';
 import path from 'path';
 const app = express();
 
-// app.use('public',express.static(path.join(__dirname+'public')));
+const public_path = path.join(__dirname+'/../public');
 
-app.get('/', (req:Request, res:Response):void => {
-    res.sendFile(path.join(__dirname+'/public/index.html'));
-});
+app.use(express.static(public_path));
 
 export default app;

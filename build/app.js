@@ -6,8 +6,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const path_1 = __importDefault(require("path"));
 const app = (0, express_1.default)();
-// app.use('public',express.static(path.join(__dirname+'public')));
-app.get('/', (req, res) => {
-    res.sendFile(path_1.default.join(__dirname + '/public/index.html'));
-});
+const public_path = path_1.default.join(__dirname + '/../public');
+app.use(express_1.default.static(public_path));
 exports.default = app;
