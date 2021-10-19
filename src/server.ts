@@ -9,14 +9,18 @@ const port = parseInt(process.env.PORT as string) || 1313;
 
 io.on('connection', (socket) => {
     console.log(`From server side on connection -> ${socket.id}`);
-
-    socket.emit('send_msg', 'welcome');
-
     socket.on('send_msg', (data) => {
         console.log(`From server side on send_msg -> ${data.sent_msg}`);
         io.emit('send_msg',{ 
             sent_msg:data.sent_msg,
-            sender_id:data.sender_id 
+            sender_id:data.sender_id ,
+            username:data.username
+        });
+    });
+    socket.on('exit_chat',(data)=>{
+        console.log(`From server side on exit_chat -> ${data.username}`);
+        socket.broadcast.emit('exit_chat',{
+            exited_user:data.username
         });
     });
     socket.on("disconnect", () => {

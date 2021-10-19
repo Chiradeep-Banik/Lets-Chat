@@ -5,18 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>chat-App | v1</title>
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/chat_style.css">
 </head>
 <body>
     <h1>Hello Chat-App</h1>
-    <ul class="list">
-    </ul>
+    <div id="container">
+        <ul class="list">
+        </ul>
+    </div>
     <form>
         <input type="text" name="msg" id="msg">
-        <input type="submit" value="Send">
+        <input type="submit" value="Send" id="submit">
+        <button id="exit">EXIT</button>
     </form>
-
     <script src="/socket.io/socket.io.js"></script>
-    <script src="./js/script.js"></script>
+    <script src="./js/chat.js"></script>
 </body>
 </html>

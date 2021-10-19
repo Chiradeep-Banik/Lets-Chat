@@ -1,0 +1,43 @@
+html{
+    background-color: rgb(41, 39, 39);
+}
+h1{
+    color: rgb(185, 162, 162);
+    text-align: center;
+}
+#container{
+    height: 75vh;
+    Overflow-y:scroll;
+    background-color: rgb(196, 190, 190);
+}
+form{
+    text-align: center;
+    font-family: 'Roboto';
+    position: relative;
+    bottom: 0%;
+    width: 100%;
+    padding-bottom: 2rem;
+    display: flex;
+    min-height: 2rem;
+    margin-top: 1rem;
+}
+form #msg{
+    flex:5;
+    font-size: 1.3rem;
+    background-color: rgb(180, 175, 175);
+}
+form #submit{
+    flex:1;
+    font-size: 1.3rem;
+    cursor: pointer;
+    background-color: rgb(180, 175, 175);
+}
+
+#exit{
+    font-size: 1.3rem;
+    cursor: pointer;
+    background-color: rgb(180, 175, 175);
+    flex: 1;
+}
+
+
