@@ -1,5 +1,12 @@
+:root{
+    --primary-color:#202225;
+    --secondary-color:#32353B;
+    --msg-color:#40444B;
+    --button-color:#e6e4e4;
+    --botton-hover:#9881ff;
+}
 html{
-    background-color: rgb(41, 39, 39);
+    background-color: var(--primary-color);
 }
 body{
     display: flex;
@@ -10,7 +17,7 @@ body{
 form{
     display: flex;
     flex-direction: column;
-    background-color: rgb(196, 190, 190);
+    background-color: var(--secondary-color);
     margin: 0 auto;
     align-items: center;
     justify-content: center;
@@ -25,15 +32,21 @@ form input,button{
     margin: 0.5rem 0;
     padding: 0.5rem;
     border: none;
-    box-shadow: 0 0.15rem 0.6rem rgba(0, 0, 0, 0.288);
+    outline: none;
     border-radius: 0.5rem;
     font-size: 2rem;
     text-align: center;
 }
+#uname, #room{
+    background-color: var(--msg-color);
+    color:white;
+}
 #submit_btn{
     cursor: pointer;
+    background-color: var(--button-color);
 }
 #submit_btn:hover{
-    background-color:rgb(236, 235, 235) ;
-    box-shadow: 0 0.25rem 1.5rem rgba(0, 0, 0, 0.288);
+    background-color: var(--botton-hover);
+    transform: scale(1.05);
+    transition: all 0.2s ease-in-out;
 }

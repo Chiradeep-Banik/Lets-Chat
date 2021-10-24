@@ -17,7 +17,7 @@ const http_1 = require("http");
 const socket_io_1 = require("socket.io");
 const server = (0, http_1.createServer)(app_1.default);
 const io = new socket_io_1.Server(server);
-const port = 1313;
+const port = process.env.PORT || 1313;
 io.on('connection', (socket) => {
     console.log(`From server side on connection -> ${socket.id}`);
     socket.on('send_msg', (data) => {
