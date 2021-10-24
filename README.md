@@ -1,5 +1,5 @@
 # chat-app
-A real-time chat app made with Auth0 and socket.io
+A real-time chat app made with socket.io
 
 # Socket-io
 - [socket.io](https://socket.io/)
