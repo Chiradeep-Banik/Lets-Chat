@@ -1,16 +1,36 @@
+:root{
+    --primary-color:#202225;
+    --secondary-color:#32353B;
+    --scrollbar-track:#2E3338;
+    --scrollbar-thumb:#1c1e20;
+    --msg-color:#40444B;
+    --text-color:#896eff;
+    --button-color:#e6e4e4;
+    --botton-hover:#9881ff;
+    --msg-text:black;
+    --msg-me:#c8bdfc;
+    --msg-notme:#FFFFFF;
+}
+*{
+    font-family: 'Open Sans', sans-serif;
+}
+
 html{
-    background-color: rgb(41, 39, 39);
+    background-color: var(--primary-color);
+    color: var(--text-color);
 }
 h1{
-    color: rgb(185, 162, 162);
+    color: var(--text-color);
     text-align: center;
+    font-weight: bold;
 }
 #container{
     height: 74vh;
     Overflow-y:scroll;
-    background-color: rgb(196, 190, 190);
+    background-color: var(--secondary-color);
     width: 95%;
     margin:0 auto;
+    border-radius: 0.5rem;
 }
 #form{
     text-align: center;
@@ -23,48 +43,76 @@ h1{
     min-height: 2rem;
     margin: 1rem auto 0 auto;
 }
+::-webkit-scrollbar{
+    width: 0.5rem;
+}
+::-webkit-scrollbar-thumb{
+    background-color: var(--scrollbar-thumb);
+    border-radius: 0.5rem;
+}
+::-webkit-scrollbar-track{
+    background-color: var(--scrollbar-track);
+    border-radius: 0.5rem;
+}
 #form #msg{
     flex:5;
     font-size: 1.3rem;
-    background-color: rgb(180, 175, 175);
-}
-#form #submit{
-    flex:1;
-    font-size: 1.3rem;
-    cursor: pointer;
-    background-color: rgb(180, 175, 175);
+    background-color: var(--msg-color);
+    border-radius: 1rem;
+    border:none;
+    color: var(--button-color);
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    outline: none;
 }
 
 #exit,#send{
     font-size: 1.3rem;
     cursor: pointer;
-    background-color: rgb(180, 175, 175);
+    background-color: var(--button-color);
     flex: 0.7;
+    border-radius: 1rem;
+    border:none;
+    font-weight: bold;
+}
+#exit:hover,#send:hover{
+    background-color: var(--botton-hover);
+    transform: scale(1.05);
+    transition: all 0.2s ease-in-out;
 }
 ul{
     list-style: none;
 }
 li{
-    padding: 0.5rem;
+    padding: 0.7rem;
     margin-right: 2.5rem;
+    margin-bottom: 0.15rem;
     width:30%;
-    border-bottom: rgb(53, 49, 49) solid 1px;
+    border-bottom: var(--primary-color) solid 1px;
 }
 li .user{
     font-size: 1rem;
     opacity: 0.5;
+    color: var(--msg-text);
+    font-weight: 600;
+    opacity: 0.6;
 }
 li .msg{
     font-size: 1.3rem;
+    color: var(--msg-text);
+    word-wrap: break-word;
+    font-weight: 600;
 }
 li .time{
     font-size: 1rem;
     opacity: 0.5;
+    color: var(--msg-text);
+    font-weight: 600;
+    opacity: 0.6;
 }
 
 li.notme{
     text-align: left;
-    background-color: rgb(165, 143, 134);
+    background-color: var(--msg-notme);
     border-radius: 1.2rem 1.2rem 1.2rem 0rem;
     left:0%;
     margin-right: auto;
@@ -72,18 +120,19 @@ li.notme{
 
 li.left,li.join{
     text-align: center;
-    background-color: rgb(196, 190, 190);
+    background-color:var(--secondary-color);
     border:none;
     font-style: italic;
     font-size: 1.3rem;
     margin: 0 auto;
     opacity: 0.4;
 }
-
-
+li.left .msg,li.join .msg{
+    color: var(--button-color);
+}
 li.me{
     text-align: right;
-    background-color: rgb(167 148 148);
+    background-color: var(--msg-me);
     margin-left: auto;
     border-radius: 1.2rem 1.2rem 0rem 1.2rem;
 }
