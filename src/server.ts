@@ -37,5 +37,5 @@ io.on('connection', (socket) => {
 
 
 server.listen(port,async ()=>{
-    console.log(`Server is listening on port https://localhost/${port}`);
+    console.log(`Server is listening on port https://localhost:${port}`);
 });
