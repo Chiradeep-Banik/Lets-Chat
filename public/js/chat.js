@@ -9,9 +9,10 @@ const container = document.querySelector('#container');
 
 send_btn.addEventListener('click', () => {
     var msg = input.value;
+    var enc_msg = CryptoJS.AES.encrypt(msg, "secret").toString();
     if(msg == '') return;
     socket.emit('send_msg',{ 
-        sent_msg:msg,
+        sent_msg:enc_msg,
         sender_id:socket.id,
         username:params.get('username'),
         room:params.get('room') 
@@ -34,7 +35,6 @@ exit_btn.addEventListener('click', () => {
 });
 
 socket.on("connect", () => {
-    console.log(`From client side on connection -> ${socket.id}`);
     socket.emit('join_chat',{
         sender_id:socket.id,
         username:params.get('username'),
@@ -43,7 +43,6 @@ socket.on("connect", () => {
 });
 
 socket.on("send_msg", (data) => {
-    console.log(`From client side on send_msg -> ${data.sender_id} ${data.sent_msg}`);
     var li = document.createElement('li');
     if(data.username == params.get('username')){
         li.classList.add('me');
@@ -52,19 +51,19 @@ socket.on("send_msg", (data) => {
     }
     var today = new Date();
     var time = today.getHours() + ":" + today.getMinutes()+ ":" + today.getSeconds();
+    var msg= CryptoJS.AES.decrypt(data.sent_msg,"secret").toString(CryptoJS.enc.Utf8);
     li.innerHTML = `
         <div class="line1">
             <div class="time">${time}</div>    
             <div class="user">${data.username}</div>
         </div>
-        <div class="msg">${data.sent_msg}</div>
+        <div class="msg">${msg}</div>
     `;
     list.appendChild(li);
     container.scrollTop = container.scrollHeight;
 });
   
 socket.on("disconnect", () => {
-    console.log(`From client side on connection -> ${params.get('username')}`);
 });
 
 socket.on("exit_chat", (data) => {
