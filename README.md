@@ -1,4 +1,4 @@
-# chat-app
+# Lets-Chat
 A real-time chat app made with socket.io
 
 # Socket-io
