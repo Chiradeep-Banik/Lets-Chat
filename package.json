@@ -4,7 +4,7 @@
   "description": "A real-time chat app",
   "main": "server.ts",
   "scripts": {
-    "start": "node ./build/server.js",
+    "start": "node ./build/index.js",
     "build": "tsc -p ."
   },
   "repository": {
